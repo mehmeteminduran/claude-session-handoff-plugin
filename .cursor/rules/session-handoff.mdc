@@ -1,0 +1,31 @@
+---
+description: Preserve and resume AI coding work through HANDOFF.md session files.
+alwaysApply: true
+---
+
+# Session handoff protocol
+
+This repository may use `HANDOFF.md` and `HANDOFF.<session>.md` files to pass in-flight work between Cursor, Claude Code, Codex, and fresh AI sessions.
+
+When the user asks to hand off, save, checkpoint, preserve context, or run `/handoff`, use the project command in `.cursor/commands/handoff.md` if available.
+
+When the user asks to resume, continue a saved task, load a handoff, or run `/resume`, use the project command in `.cursor/commands/resume.md` if available.
+
+## Handoff file expectations
+
+- Resolve the repo root with `git rev-parse --show-toplevel`.
+- Default session file: `HANDOFF.md`.
+- Named session file: `HANDOFF.<slug>.md`.
+- Slug rule: lowercase, spaces and `/` become `-`, remove characters outside `[a-z0-9._-]`.
+- Handoff content should be in English for cross-tool compatibility.
+- Always reconcile a handoff with `git status` and direct file reads before acting.
+
+## Behavioral rules
+
+- Do not treat a handoff as ground truth. The working tree is ground truth.
+- Keep handoff files small, structured, and actionable.
+- Include concrete `file:line` references whenever possible.
+- Preserve decisions and rejected approaches, not just the final task list.
+- Do not silently overwrite a handoff that clearly belongs to a different active task.
+- After finishing a resumed step, suggest updating the same handoff session.
+

@@ -90,6 +90,27 @@ Local development (before pushing to GitHub):
 
 After install, the two slash commands are available globally and the PreCompact hook is registered automatically.
 
+## Cursor commands and rules
+
+Cursor does not install Claude Code plugins directly, but this repo also ships a Cursor-native version of the workflow:
+
+```text
+.cursor/commands/handoff.md
+.cursor/commands/resume.md
+.cursor/rules/session-handoff.mdc
+```
+
+Copy the `.cursor` directory into any project you open with Cursor. After that, Cursor exposes the commands as project slash commands:
+
+```text
+/handoff auth-jwt-rotation
+/resume auth-jwt-rotation
+```
+
+The Cursor commands read and write the same `HANDOFF.md` / `HANDOFF.<session>.md` files as the Claude Code plugin, so sessions can move between Claude Code, Cursor, Codex, and fresh AI sessions. The Cursor rule keeps the handoff protocol available in normal chats too.
+
+Claude Code's `PreCompact` hook has no exact Cursor equivalent, so the Cursor version focuses on commands and rules rather than blocking context compaction.
+
 ---
 
 ## Configuration
