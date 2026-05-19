@@ -1,0 +1,19 @@
+{
+  "name": "session-handoff",
+  "description": "Session-based /handoff and /resume slash commands so Claude Code, Codex, and Cursor can hand work off to each other without losing context. Ships a PreCompact hook that blocks context summarization until a fresh handoff exists.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Emin Duran",
+    "email": "eminnduran@gmail.com"
+  },
+  "keywords": [
+    "handoff",
+    "resume",
+    "session",
+    "codex",
+    "cursor",
+    "context",
+    "precompact"
+  ],
+  "license": "MIT"
+}
