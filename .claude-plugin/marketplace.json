@@ -8,8 +8,8 @@
     {
       "name": "session-handoff",
       "source": "./",
-      "description": "Session-based /handoff and /resume across Claude Code, Codex, and Cursor — with a PreCompact guard.",
-      "version": "0.1.0"
+      "description": "Session-based /handoff and /resume across Claude Code, Codex, and Cursor — with a /compact guard.",
+      "version": "0.3.0"
     }
   ]
 }

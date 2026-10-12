@@ -2,11 +2,22 @@
   "hooks": {
     "PreCompact": [
       {
-        "matcher": "*",
+        "matcher": "manual",
         "hooks": [
           {
             "type": "command",
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/precompact-handoff.sh\""
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/handoff-guard.sh\" precompact"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/handoff-guard.sh\" postcompact"
           }
         ]
       }
